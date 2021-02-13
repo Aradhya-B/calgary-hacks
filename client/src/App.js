@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { createStore } from 'redux';
+import { Provider} from 'react-redux';
+import Summary from './views/Summary';
 import Upload from './views/Upload';
 
+import reducers from './reducers';
+
+const store = createStore(reducers, {});
+
 const App = () => {
-  const [keyWordToHtmlMap, setKeywordToHtmlMap] = useState({});
   return (
-    <div>
-      <Upload/>
-    </div>
+    <Provider store={store}>
+      <Summary />
+    </Provider>
   );
 }
 
