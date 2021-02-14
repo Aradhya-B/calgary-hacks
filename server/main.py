@@ -49,7 +49,7 @@ def summary_query(payload):
     return json.loads(response.content.decode("utf-8"))
 
 
-async def get_text_keywords_and_summaries(text):
+def get_text_keywords(text):
     document = language_v1.types.Document(
         content=text.strip(), language='en', type_=language_v1.Document.Type.PLAIN_TEXT)
 
@@ -65,10 +65,37 @@ async def get_text_keywords_and_summaries(text):
         if (entity.salience > 0.01 and language_v1.Entity.Type.OTHER != entity.type_) or \
                 (entity.salience > 0.1 and language_v1.Entity.Type.OTHER == entity.type_):
             keywords_array.append(entity.name)
+    return list(set(keywords_array))
 
+
+def get_text_summary(text):
     summary_text_array = summary_query({"inputs": text.strip()})
     summary_text = summary_text_array[0]['summary_text']
-    return {'text': text.replace('\n', ''), 'keywords': list(set(keywords_array)), 'summary': summary_text}
+    return summary_text
+
+
+def get_text_category(text):
+    """Classify the input text into categories. """
+
+    language_client = language_v1.LanguageServiceClient()
+
+    document = language_v1.Document(
+        content=text.strip(), type_=language_v1.Document.Type.PLAIN_TEXT
+    )
+    response = language_client.classify_text(request={'document': document})
+    categories = response.categories
+    categories.sort(key=lambda category: category.confidence)
+    if len(categories) > 0:
+        return categories[0].name
+    return "N/A"
+
+
+async def get_text_keywords_and_summaries(text):
+    keywords = get_text_keywords(text)
+    summary = get_text_summary(text)
+    category = get_text_category(text)
+
+    return {'text': text.replace('\n', ''), 'keywords': keywords, 'summary': summary, 'category': category}
 
 
 def allowed_text_file(filename):
@@ -110,15 +137,11 @@ def read_video_file(filename):
     )
 
     response = client.recognize(config=config, audio=audio)
-    # response = operation.result(timeout=90)
 
     split_text = []
 
     for i, result in enumerate(response.results):
         alternative = result.alternatives[0]
-        # print("-" * 20)
-        # print("First alternative of result {}".format(i))
-        # print(u"Transcript: {}".format(alternative.transcript))
         split_text.append(alternative.transcript)
 
     api_responses = asyncio.run(
