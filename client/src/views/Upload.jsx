@@ -122,7 +122,7 @@ class Upload extends Component {
       return (
         <div>
             <Title>
-              crammer.io
+              NeuralNotes 🧠
             </Title>
             <Title2>
               supercharge your notes ⚡

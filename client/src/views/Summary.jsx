@@ -44,10 +44,11 @@ const Summary = () => {
     let textWithHyperlink = originalText;
 
     Object.keys(keywordMap).forEach(keyword => {
+      textWithHyperlink = reactStringReplace(textWithHyperlink, `${keyword.charAt(0).toUpperCase() + keyword.slice(1)} `, (match, i) => <span><ModalLink key={match + i + Math.random(10000)} str={`${keyword}`} />{' '}</span>)
       textWithHyperlink = reactStringReplace(textWithHyperlink, ` ${keyword}`, (match, i) => <span>{' '}<ModalLink key={match + i + Math.random(10000)} str={`${keyword}`} /></span>)
     });
 
-    textWithHyperlink = reactStringReplace(textWithHyperlink, '\n', (match, i) => <div><br/></div>);
+    textWithHyperlink = reactStringReplace(textWithHyperlink, '\n', (match, i) => <div></div>);
 
     return textWithHyperlink;
   }

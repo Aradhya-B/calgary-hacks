@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const FlashbarWrapper = styled.section`
   padding: 0 1em;
@@ -30,12 +31,14 @@ const StyledButton = styled("button")`
 `
 
 const Flashbar = () => {
+  const history = useHistory();
+  
   return (
     <FlashbarWrapper>
       <StyledFlashbarText>
         <p style={{fontWeight: 600}}>Your supercharged notes are ready!</p>
       </StyledFlashbarText>
-      <StyledButton>
+      <StyledButton onClick={() => history.push('/')}>
         Upload another document
       </StyledButton>
     </FlashbarWrapper>
