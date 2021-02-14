@@ -9,6 +9,6 @@ const rootReducer = combineReducers({
   modals: modalReducer,
   summary: summaryReducer,
   original: originalReducer
-})
+});
 
-export default rootReducer;
+export default rootReducer

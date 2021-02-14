@@ -1,4 +1,4 @@
-import { GET_MODALS, ADD_MODAL, REMOVE_MODAL } from '../actions/types';
+import { GET_MODALS, ADD_MODAL, REMOVE_MODAL, RESET_STATE } from '../actions/types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (state=[], action) {
@@ -24,6 +24,8 @@ export default function (state=[], action) {
       }
     case REMOVE_MODAL: 
       return state.filter(modal => modal.keyword !== action.payload);
+    case RESET_STATE:
+      return [];
     default:
       return state;
   }

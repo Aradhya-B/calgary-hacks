@@ -35,6 +35,10 @@ h1 {
   line-height: 1;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .text-container {
   padding: 2rem;
   margin: auto;

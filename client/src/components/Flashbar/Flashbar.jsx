@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { RESET_STATE } from '../../actions/types';
 
 const FlashbarWrapper = styled.section`
   padding: 0 1em;
@@ -32,13 +34,19 @@ const StyledButton = styled("button")`
 
 const Flashbar = () => {
   const history = useHistory();
-  
+  const dispatch = useDispatch();
+
+  const goHome = () => {
+    dispatch({type: RESET_STATE});
+    history.push('/')
+  }
+
   return (
     <FlashbarWrapper>
       <StyledFlashbarText>
         <p style={{fontWeight: 600}}>Your supercharged notes are ready!</p>
       </StyledFlashbarText>
-      <StyledButton onClick={() => history.push('/')}>
+      <StyledButton onClick={goHome}>
         Upload another document
       </StyledButton>
     </FlashbarWrapper>

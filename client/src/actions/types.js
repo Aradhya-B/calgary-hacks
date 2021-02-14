@@ -7,3 +7,4 @@ export const REMOVE_MODAL = 'remove_modal';
 
 export const SET_SUMMARY = 'set_summary';
 export const SET_ORIGINAL = 'set_original';
+export const RESET_STATE = 'reset_state';
