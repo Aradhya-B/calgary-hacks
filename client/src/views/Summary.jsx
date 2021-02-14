@@ -20,6 +20,7 @@ const ModalContainer = styled.div`
   max-width: 50%;
   border-left: 1px solid #d3d3d3;
   background-color: #f4f4f4;
+  overflow-y: scroll;
 `
 
 const Container = styled.div`
@@ -49,6 +50,7 @@ Most modern CPUs are implemented on integrated circuit (IC) microprocessors, wit
 An IC that contains a CPU may also contain memory, peripheral interfaces, and other components of a computer; such integrated devices are variously called microcontrollers or systems on a chip (SoC).
 
 Array processors or vector processors have multiple processors that operate in parallel, with no unit considered central. Virtual CPUs are an abstraction of dynamical aggregated computational resources.`} />
+          <Modal keyword={"test"} htmlToRender={"test"} />
           <Modal keyword={"test"} htmlToRender={"test"} />
         </ModalContainer>
       </NotesContainer>
