@@ -13,6 +13,7 @@ const NotesContainer = styled.section`
   display: flex;
   justify-content: space-evenly;
   overflow: hidden;
+  height: 100%;
 `
 
 const ModalContainer = styled.div`
