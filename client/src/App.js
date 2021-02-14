@@ -5,7 +5,7 @@ import Upload from './views/Upload';
 
 import reducers from './reducers';
 
-const store = createStore(reducers, {});
+const store = createStore(reducers, {modals: [], keywordMap: {}});
 
 const App = () => {
   return (
