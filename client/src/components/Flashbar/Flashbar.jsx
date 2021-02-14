@@ -23,8 +23,8 @@ const StyledButton = styled("button")`
   border-radius:0.12em;
   box-sizing: border-box;
   text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:300;
+  font-family:'Open Sans',sans-serif;
+  font-weight:600;
   color:#000000;
   background-color:#FFFFFF;
 `
