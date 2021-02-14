@@ -33,7 +33,7 @@ const Flashbar = () => {
   return (
     <FlashbarWrapper>
       <StyledFlashbarText>
-        <p>Your supercharged notes are ready!</p>
+        <p style={{fontWeight: 600}}>Your supercharged notes are ready!</p>
       </StyledFlashbarText>
       <StyledButton>
         Upload another document

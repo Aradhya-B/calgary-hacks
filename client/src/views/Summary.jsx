@@ -8,13 +8,14 @@ import styled from 'styled-components';
 const NotesContainer = styled.section`
   display: flex;
   justify-content: space-evenly;
+  overflow: hidden;
 `
 
 const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 3rem 0;
+  padding: 1rem 0;
   flex: 1 0 35%;
   max-width: 50%;
   border-left: 1px solid #d3d3d3;
