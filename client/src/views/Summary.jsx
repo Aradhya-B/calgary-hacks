@@ -4,6 +4,10 @@ import Flashbar from '../components/Flashbar';
 import TextBody from '../components/TextBody';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
+import original from '../reducers/original';
+import ModalLink from '../components/ModalLink';
+import { ADD_MODAL } from '../actions/types';
+const reactStringReplace = require('react-string-replace');
 
 const NotesContainer = styled.section`
   display: flex;
@@ -16,8 +20,8 @@ const ModalContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem 0;
-  flex: 1 0 35%;
-  max-width: 50%;
+  flex: 1 0 25%;
+  max-width: 33%;
   border-left: 1px solid #d3d3d3;
   background-color: #f4f4f4;
   overflow-y: scroll;
@@ -31,21 +35,40 @@ const Container = styled.div`
 `
 
 const Summary = () => {
-  // const modals = useSelector(state => state.modals);
-  const modals = [{keyword: 'Processor', htmlToRender: 'test'}, {keyword: 'Processor', htmlToRender: 'test'}, {keyword: 'Processor', htmlToRender: 'test'}]
+  const modals = useSelector(state => state.modals);
+  const originalText = useSelector(state => state.original);
+  const summary = useSelector(state => state.summary);
+  const keywordMap = useSelector(state => state.keywordMap);
+
+  const getTextWithHyperlinks = (keywordMap, originalText) => {
+    let textWithHyperlink = originalText;
+
+    Object.keys(keywordMap).forEach(keyword => {
+      textWithHyperlink = reactStringReplace(textWithHyperlink, keyword, (match, i) => <ModalLink key={match + i} str={keyword} />)
+    });
+
+    console.log(textWithHyperlink);
+
+    return textWithHyperlink;
+  }
 
   return (
     <Container>
       <Flashbar />
       <NotesContainer>
-        <TextBody htmlToRender={"test"} />
-        <ModalContainer>
-          {
-            modals.map(modal => 
-              <Modal keyword={modal.keyword} htmlToRender={modal.htmlToRender} />
-            )
-          }
-        </ModalContainer>
+        <TextBody htmlToRender={getTextWithHyperlinks(keywordMap, originalText)} />
+        <TextBody htmlToRender={getTextWithHyperlinks(keywordMap, summary)} />
+        { 
+          modals && modals.length ?
+          <ModalContainer>
+            {
+              modals.map(modal => 
+                <Modal keyword={modal.keyword} htmlToRender={modal.htmlToRender} />
+              )
+            }
+          </ModalContainer> :
+          null
+        }
       </NotesContainer>
     </Container>
   )

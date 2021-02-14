@@ -23,7 +23,7 @@ export default function (state=[], action) {
         return [...state, action.payload];
       }
     case REMOVE_MODAL: 
-      return state.filter(modal => modal.keyword === action.payload.keyword);
+      return state.filter(modal => modal.keyword !== action.payload);
     default:
       return state;
   }
