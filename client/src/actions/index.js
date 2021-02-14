@@ -5,7 +5,6 @@ export const setKeywordMap = (keywordMap) => dispatch => {
 }
 
 export const addModal = (modal) => dispatch => {
-  console.log(modal);
   return dispatch({type: ADD_MODAL, payload: modal});
 }
 

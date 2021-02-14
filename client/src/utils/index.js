@@ -29,7 +29,6 @@ export async function keywordToWikipediaMap(keywords) {
         }
 
         var links = await getJson(currLinks);
-        console.log(links);
         if (typeof extract !== 'undefined') {
             res[keywords[i]] = [extract, links[3]];
         }

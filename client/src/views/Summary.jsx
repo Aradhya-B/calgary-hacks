@@ -44,10 +44,8 @@ const Summary = () => {
     let textWithHyperlink = originalText;
 
     Object.keys(keywordMap).forEach(keyword => {
-      textWithHyperlink = reactStringReplace(textWithHyperlink, keyword, (match, i) => <ModalLink key={match + i} str={keyword} />)
+      textWithHyperlink = reactStringReplace(textWithHyperlink, keyword, (match, i) => <ModalLink key={match + i + Math.random(10000)} str={keyword} />)
     });
-
-    console.log(textWithHyperlink);
 
     return textWithHyperlink;
   }
@@ -63,7 +61,7 @@ const Summary = () => {
           <ModalContainer>
             {
               modals.map(modal => 
-                <Modal keyword={modal.keyword} htmlToRender={modal.htmlToRender} />
+                <Modal key={modal.keyword} keyword={modal.keyword} htmlToRender={modal.htmlToRender} />
               )
             }
           </ModalContainer> :
