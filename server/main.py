@@ -88,7 +88,6 @@ def read_file(filename):
     del split_text[-1]
 
     gpt3_responses = asyncio.run(async_get_text_keywords(split_text))
-    print(gpt3_responses)
     return gpt3_responses
     # keywords = []
     # summaries = []
@@ -122,6 +121,6 @@ def upload():
             print(filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-            read_file(UPLOAD_FOLDER + '/' + filename)
+            gpt3_responses = read_file(UPLOAD_FOLDER + '/' + filename)
 
-            return Response(status=200)
+            return gpt3_responses
