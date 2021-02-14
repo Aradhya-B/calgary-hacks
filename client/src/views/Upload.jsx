@@ -139,7 +139,7 @@ class Upload extends Component {
             </Title2>
             {
               this.state.loading ?
-              <Loader type="ThreeDots" color="#000" height={100} width={100} style={{textAlign: "center"}} /> :
+              <Loader type="ThreeDots" color="#fff" height={100} width={100} style={{textAlign: "center"}} /> :
               <Div>
                 <Input type="file" onChange={this.onFileChange} />
                 <Button onClick={this.onFileUpload}>
