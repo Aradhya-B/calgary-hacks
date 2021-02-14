@@ -1,3 +1,5 @@
+import background from './book_proper_size.jpg'
+
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { keywordToWikipediaMap } from '../utils';
@@ -10,13 +12,13 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 const Title = styled("h1")`
   font-size: 4em;
   text-align: center;
-  color: black;
+  color: white;
   `;
 
 const Title2 = styled("h2")`
   font-size: 1.5em;
   text-align: center;
-  color: black;
+  color: white;
   `;
 
 const Button = styled.button`
@@ -42,7 +44,7 @@ const Input = styled.input`
 const H4= styled("h2")`
   font-size: 1em;
   text-align: center;
-  color: black;
+  color: white;
   `;
 
 const Div = styled("h1")`
@@ -50,6 +52,13 @@ const Div = styled("h1")`
   text-align: center;
   color: black;
   `;
+
+const divStyle = {
+  background: `url(${background}) no-repeat center center fixed`,
+  backgroundSize: 'cover',
+  height: '100vh',
+  overflow: 'hidden'
+}
 
 class Upload extends Component {
     state = {
@@ -120,7 +129,7 @@ class Upload extends Component {
 
     render() {
       return (
-        <div>
+        <div style={ divStyle }>
             <Title>
               NeuralNotes 🧠
             </Title>
