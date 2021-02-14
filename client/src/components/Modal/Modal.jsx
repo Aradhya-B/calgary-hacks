@@ -12,6 +12,7 @@ const ModalContainer = styled.div`
   border: 1px solid #d3d3d3;
   overflow-y: scroll;
   position: relative;
+  overflow-wrap: break-word;
 `
 
 const CloseButton = styled.div `
