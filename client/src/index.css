@@ -44,8 +44,7 @@ h1 {
   font-weight: 400;
   font-size: 20px;
   flex: 1 0 33%;
-  height: 100%;
-  overflow: hidden;
+  height: 95%;
   overflow-y: scroll;
 }
 
