@@ -1,43 +1,61 @@
 import axios from 'axios';
 import React,{Component} from 'react';
 import styled from 'styled-components'
+import background from './book_proper_size.jpg'
 
 const Title = styled("h1")`
   font-size: 4em;
   text-align: center;
-  color: black;
+  color: white;
   `;
 
 const Title2 = styled("h2")`
   font-size: 1.5em;
   text-align: center;
-  color: black;
+  color: white;
   `;
+
+  const theme = {
+    blue: {
+      default: "#3f51b5",
+      hover: "#283593"
+    },
+    pink: {
+      default: "#e91e63",
+      hover: "#ad1457"
+    }
+  };
+
+var sectionStyle = {
+  backgroundImage: `url(${background})`
+}
 
 const Button = styled.button`
   color: black;
   font-size: 1em;
   margin: 1em;
-  background-color: #A9A9A9;
+  background-color: #FFFFFF;
   padding: 0.45em 0.25em;
   border: 2px solid black;
   border-radius: 3px;
+  cursor: pointer;
   `;
 
 const Input = styled.input`
   color: black;
   font-size: 1em;
   margin: 1em;
-  background-color: #A9A9A9;
+  background-color:	#FFFFFF;
   padding: 0.25em 0.25em;
   border: 2px solid black;
   border-radius: 3px;
+  cursor: pointer;
   `;
 
 const H4= styled("h2")`
   font-size: 1em;
   text-align: center;
-  color: black;
+  color: white;
   `;
 
 const Div = styled("h1")`
@@ -94,12 +112,62 @@ class App extends Component {
         return (
           <div>
             <H4>Upload File</H4>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
           </div>
         );
       } else {
         return (
           <div>
             <H4>Choose File</H4>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
           </div>
         );
       }
@@ -108,7 +176,15 @@ class App extends Component {
     render() {
 
       return (
+        <section style={ sectionStyle }>
         <div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
             <Title>
               crammer.io
             </Title>
@@ -118,21 +194,14 @@ class App extends Component {
             <Div>
                 <Input type="file" onChange={this.onFileChange} />
                 <Button onClick={this.onFileUpload}>
-                  Upload!
+                  Upload
                 </Button>
             </Div>
           {this.fileData()}
         </div>
+        </section>
       );
     }
   }
 
   export default App;
-
-const Upload = () => {
-  return (
-    <div>
-      Upload page
-    </div>
-  )
-}
