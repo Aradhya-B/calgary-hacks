@@ -43,7 +43,7 @@ h1 {
   color: #1e1e1e;
   font-weight: 400;
   font-size: 20px;
-  flex: 1 0 45%;
+  flex: 1 0 33%;
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
@@ -53,8 +53,9 @@ h1 {
   background: none!important;
   border: none;
   padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
+  font-weight: 400;
+  font-family: 'Newsreader', serif;
+  font-size: 20px;
   /*input has OS specific font-family*/
   color: #069;
   text-decoration: underline;

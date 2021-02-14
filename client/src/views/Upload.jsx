@@ -1,6 +1,11 @@
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { keywordToWikipediaMap } from '../utils';
+import { setOriginalNotes, setSummary, setKeywordMap } from '../actions';
 import React,{Component} from 'react';
 import styled from 'styled-components'
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Title = styled("h1")`
   font-size: 4em;
@@ -46,14 +51,12 @@ const Div = styled("h1")`
   color: black;
   `;
 
-class App extends Component {
-
-
-
+class Upload extends Component {
     state = {
 
       // Initially, no file is selected
-      selectedFile: null
+      selectedFile: null,
+      loading: false
     };
 
     // On file select (from the pop up)
@@ -65,7 +68,9 @@ class App extends Component {
     };
 
     // On file upload (click the upload button)
-    onFileUpload = () => {
+    onFileUpload = async () => {
+
+      this.setState({loading: true});
 
       let file = this.state.selectedFile;
 
@@ -78,13 +83,19 @@ class App extends Component {
         file
       );
 
-      // Details of the uploaded file
-      console.log(this.state.selectedFile);
-
       // Request made to the backend api
       // Send formData object
-      axios.post("http://localhost:5000/upload", formData)
-      .then(res => console.log(res));
+      const res =await axios.post("http://localhost:5000/upload", formData)
+      const keywords = [...new Set(res.data.reduce((accum, arr) => accum.concat(arr.keywords), []))];
+      const summary = res.data.reduce((accum, arr) => {accum.push(arr.summary[0].summary_text); return accum;}, []).join('\n');
+      const originalText = res.data.reduce((accum, arr) => {accum.push(arr.text); return accum;}, []).join('\n');
+
+      this.props.setSummary(summary);
+      this.props.setOriginalNotes(originalText);
+      const keywordToWikiMap = await keywordToWikipediaMap(keywords);
+
+      this.props.setKeywordMap(keywordToWikiMap);
+      this.props.history.push('/notes');
     };
 
     // File content to be displayed after
@@ -108,7 +119,6 @@ class App extends Component {
     };
 
     render() {
-
       return (
         <div>
             <Title>
@@ -117,24 +127,26 @@ class App extends Component {
             <Title2>
               supercharge your notes ⚡
             </Title2>
-            <Div>
+            {
+              this.state.loading ?
+              <Loader type="ThreeDots" color="#000" height={100} width={100} style={{textAlign: "center"}} /> :
+              <Div>
                 <Input type="file" onChange={this.onFileChange} />
                 <Button onClick={this.onFileUpload}>
                   Upload!
                 </Button>
-            </Div>
-          {this.fileData()}
+              </Div>
+            }
+          {!this.state.loading && this.fileData()}
         </div>
       );
     }
   }
 
-  export default App;
+  const mapDispatchToProps = {
+    setOriginalNotes,
+    setSummary,
+    setKeywordMap
+  }
 
-const Upload = () => {
-  return (
-    <div>
-      Upload page
-    </div>
-  )
-}
+  export default connect(null, mapDispatchToProps)(Upload);
