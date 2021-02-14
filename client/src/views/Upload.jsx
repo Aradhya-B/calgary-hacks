@@ -85,7 +85,7 @@ class Upload extends Component {
 
       // Request made to the backend api
       // Send formData object
-      const res = await axios.post("http://localhost:5000/upload", formData);
+      const res = await axios.post(process.env.API_URL, formData);
       const keywords = [...new Set(res.data.reduce((accum, arr) => accum.concat(arr.keywords), []))];
       const summary = res.data.reduce((accum, arr) => {accum.push(arr.summary); return accum;}, []).join('\n');
       const originalText = res.data.reduce((accum, arr) => {accum.push(arr.text); return accum;}, []).join('\n');
