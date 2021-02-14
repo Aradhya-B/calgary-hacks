@@ -67,14 +67,15 @@ class App extends Component {
     // On file upload (click the upload button)
     onFileUpload = () => {
 
+      let file = this.state.selectedFile;
+
       // Create an object of formData
       const formData = new FormData();
 
       // Update the formData object
       formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
+        "file",
+        file
       );
 
       // Details of the uploaded file
@@ -82,7 +83,8 @@ class App extends Component {
 
       // Request made to the backend api
       // Send formData object
-      axios.post("api/uploadfile", formData);
+      axios.post("http://localhost:5000/upload", formData)
+      .then(res => console.log(res));
     };
 
     // File content to be displayed after

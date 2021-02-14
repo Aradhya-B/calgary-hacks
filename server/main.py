@@ -9,6 +9,7 @@ from pdfminer3.pdfpage import PDFPage
 from pdfminer3.layout import LAParams, LTTextBox
 from werkzeug.utils import secure_filename
 from flask import Flask, flash, request, redirect, url_for, Response, jsonify
+from flask_cors import CORS
 import os
 import io
 import openai
@@ -24,6 +25,7 @@ headers = {"Authorization": f"Bearer {API_TOKEN}"}
 API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
 
 app = Flask(__name__)
+CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
