@@ -25,16 +25,26 @@ const CloseButton = styled.div `
   }
 `
 
+const LinkContainer = styled.div `
+  margin-bottom: 1em;
+`
+
 const Modal = ({keyword, htmlToRender}) => {
   const dispatch = useDispatch();
   const closeModal = (keyword) => {
     dispatch(removeModal(keyword));
   }
+
   return (
     <ModalContainer>
       <CloseButton onClick={() => closeModal(keyword)}>✖️</CloseButton>
-      <h1>{keyword}</h1>
-      <p style={{lineHeight: "1.5em"}}>{htmlToRender}</p>
+      <h1>{keyword.charAt(0).toUpperCase() + keyword.slice(1)}</h1>
+      {
+        htmlToRender[0].split('\n').map(body => <p style={{lineHeight: "1.5em"}}>{body}</p>)
+      }
+      {
+        htmlToRender[1].map(link => <LinkContainer><a target="__blank" href={link}>{link}</a></LinkContainer>)
+      }
     </ModalContainer>
   )
 }

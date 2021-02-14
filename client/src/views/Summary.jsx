@@ -47,6 +47,8 @@ const Summary = () => {
       textWithHyperlink = reactStringReplace(textWithHyperlink, keyword, (match, i) => <ModalLink key={match + i + Math.random(10000)} str={keyword} />)
     });
 
+    textWithHyperlink = reactStringReplace(textWithHyperlink, '\n', (match, i) => <div><br/></div>);
+
     return textWithHyperlink;
   }
 

@@ -30,7 +30,7 @@ export async function keywordToWikipediaMap(keywords) {
 
         var links = await getJson(currLinks);
         if (typeof extract !== 'undefined') {
-            res[keywords[i]] = [extract, links[3]];
+            res[keywords[i].charAt(0).toUpperCase() + keywords[i].slice(1)] = [extract, links[3]];
         }
     }
     return res;
