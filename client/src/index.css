@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  font-weight: 200;
+  font-weight: 400;
   font-family: 'Newsreader', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,9 +31,10 @@ h1 {
   text-align: left;
   line-height: 34px;
   color: #1e1e1e;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 20px;
   flex: 1 0 45%;
+  height: 100%;
   overflow: hidden;
   overflow-y: scroll;
 }

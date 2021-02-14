@@ -22,11 +22,18 @@ const ModalContainer = styled.div`
   background-color: #f4f4f4;
 `
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+`
+
 const Summary = () => {
   const modals = useSelector(state => state.modals);
 
   return (
-    <div>
+    <Container>
       <Flashbar />
       <NotesContainer>
         <TextBody htmlToRender={"test"} />
@@ -45,7 +52,7 @@ Array processors or vector processors have multiple processors that operate in p
           <Modal keyword={"test"} htmlToRender={"test"} />
         </ModalContainer>
       </NotesContainer>
-    </div>
+    </Container>
   )
 }
 
