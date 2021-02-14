@@ -30,3 +30,6 @@ Our team learned how to use a react front end with a flask/python backend server
 - Allowing for more data types (iPad handwritten notes etc.)
 - More integration with data sources relevant to students
 - Add more features to help students stay on top of their notes
+
+Try it out:
+https://neural-notes.netlify.app/
