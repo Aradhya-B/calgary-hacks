@@ -1,10 +1,10 @@
 ## Inspiration
 Online school has greatly decreased the quality of teaching, making it difficult for students to get the most out of school. What used to be a mix of labs and in-person demos has turned into lengthy lecture notes and videos. It can be difficult to navigate through so much content in a limited amount of time.
 
-NeuraNotes will allow students to capture quick summaries of lecture notes and videos to make studying more effective and efficient. We wanted to develop something to support student productivity, celebrate learning diversity, and help students overcome virtual adversities
+NeuralNotes will allow students to capture quick summaries of lecture notes and videos to make studying more effective and efficient. We wanted to develop something to support student productivity, celebrate learning diversity, and help students overcome virtual adversities
 
 ## What it does
-NeuraNotes is a tool that takes in a pdf or mp4 input file. Then, these files are parsed and text is extracted from the pdf file and from the audio in the mp4 file. This text is displayed, highlighting any key words that our algorithm identifies. A summary of the text is also generated which provides a quick overview of the contents within the lecture. The keywords that are identified can be accessed on Wikipedia through our tool. 
+NeuralNotes is a tool that takes in a pdf or mp4 input file. Then, these files are parsed and text is extracted from the pdf file and from the audio in the mp4 file. This text is displayed, highlighting any key words that our algorithm identifies. A summary of the text is also generated which provides a quick overview of the contents within the lecture. The keywords that are identified can be accessed on Wikipedia through our tool. 
 
 ## How we built it
 NeuralNotes is built on top of a unique architecture that enables us to provide a streamlined user experience to students seeking increased productivity or accessibility. The front-end is built with React which allows us to offer a sleek and modern UI while also allowing us to create powerful client-side functionality, like performing string matching to replace keywords with associated weblinks. 
@@ -16,20 +16,23 @@ All students have had to adapt to the ‘new normal’, but we firmly believe th
 ## Challenges we ran into
 There were various challenges that we ran into while trying to develop this application. From the front-end side, we had challenges with text-placement using CSS and creating a design that would be intuitive for students to use. On the backend development, we had various challenges. A semantics challenge was managing virtual environments and making sure that required packages were easily downloaded on cross-platform machines. Our API choice was something we struggled with as there were a lot of options, so we wanted to ensure we were the best and more reliable technologies out there for the best performing application. 
 
+
 ## Accomplishments that we're proud of
 We wanted to build something to help students and we really think we have accomplished that with this project. As students who are struggling to adjust to virtual classes, this project can hopefully aid us and our peers who are struggling with us. 
 
 Implementing nearly EVERYTHING we could've thought of in the span of 24 hours was a big accomplishment. Our project featured machine learning, natural language processing, cloud computing, and was even deployed online. Somehow, we managed to do it all!
 
 ## What we learned
+
 Our team learned how to use a react front end with a flask/python backend server which was a really interesting challenge. We also got to use state of the art NLP models hosted on Google Cloud which was definitely very cool ! We got to learn alot about document conversions and how to handle various data sources. It was definitely a good time!
 
 ## What's next for NeuralNotes
-- Improve summarization and key words algorithms 
-- Allowing for longer video files
-- Allowing for more data types (iPad handwritten notes etc.)
-- More integration with data sources relevant to students
-- Add more features to help students stay on top of their notes
+
+Improve summarization and key words algorithms 
+Allowing for longer video files
+Allowing for more data types (iPad handwritten notes etc.)
+More integration with data sources relevant to students
+Add more features to help students stay on top of their notes
 
 Try it out:
 https://neural-notes.netlify.app/
