@@ -171,8 +171,22 @@ def read_text_file(filename):
     split_text = text.split('\n\n')
     del split_text[-1]
 
+    split_text_final = []
+
+    text_length = {}
+    for text in split_text:
+        text_length[text] = len(text)
+
+    for text in text_length:
+        running_text = ''
+        if text_length[text] < 100 and len(running_text) < 100:
+            running_text += text
+        elif text_length[text] >= 100:
+            split_text_final += [running_text, text]
+            running_text = ''
+
     api_responses = asyncio.run(
-        async_get_text_keywords_and_summaries(split_text))
+        async_get_text_keywords_and_summaries(split_text_final))
     return api_responses
 
 
