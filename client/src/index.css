@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Newsreader:light,regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:light,regular,semi-bold,bold,italic&subset=latin,latin-ext');
+
+body {
+  margin: 0;
+  font-weight: 400;
+  font-family: 'Newsreader', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  position: relative;
+  line-height: 60%;
+  font-size: 34px;
+  color: rgba(0, 0, 0, .8);
+  line-height: 1;
+}
+
+.text-container {
+  padding: 2rem;
+  margin: auto;
+  text-align: left;
+  line-height: 34px;
+  color: #1e1e1e;
+  font-weight: 400;
+  font-size: 20px;
+  flex: 1 0 33%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.link-button { 
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-weight: 400;
+  font-family: 'Newsreader', serif;
+  font-size: 20px;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
