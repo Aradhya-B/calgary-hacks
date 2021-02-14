@@ -130,7 +130,8 @@ class Upload extends Component {
     render() {
       return (
         <div style={ divStyle }>
-            <Title>
+          <div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "100%"}}>
+          <Title>
               NeuralNotes 🧠
             </Title>
             <Title2>
@@ -147,6 +148,7 @@ class Upload extends Component {
               </Div>
             }
           {!this.state.loading && this.fileData()}
+          </div>
         </div>
       );
     }
