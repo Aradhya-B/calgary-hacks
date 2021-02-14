@@ -44,7 +44,7 @@ const Summary = () => {
     let textWithHyperlink = originalText;
 
     Object.keys(keywordMap).forEach(keyword => {
-      textWithHyperlink = reactStringReplace(textWithHyperlink, keyword, (match, i) => <ModalLink key={match + i + Math.random(10000)} str={keyword} />)
+      textWithHyperlink = reactStringReplace(textWithHyperlink, ` ${keyword}`, (match, i) => <span>{' '}<ModalLink key={match + i + Math.random(10000)} str={`${keyword}`} /></span>)
     });
 
     textWithHyperlink = reactStringReplace(textWithHyperlink, '\n', (match, i) => <div><br/></div>);
@@ -56,8 +56,8 @@ const Summary = () => {
     <Container>
       <Flashbar />
       <NotesContainer>
-        <TextBody htmlToRender={getTextWithHyperlinks(keywordMap, originalText)} />
-        <TextBody htmlToRender={getTextWithHyperlinks(keywordMap, summary)} />
+        <TextBody title={"Original"} htmlToRender={getTextWithHyperlinks(keywordMap, originalText)} />
+        <TextBody title={"Summarized"} htmlToRender={getTextWithHyperlinks(keywordMap, summary)} />
         { 
           modals && modals.length ?
           <ModalContainer>
