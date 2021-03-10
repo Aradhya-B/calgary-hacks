@@ -6,7 +6,7 @@ import { RESET_STATE } from '../../actions/types';
 
 const FlashbarWrapper = styled.section`
   padding: 0 1em;
-  background: #4BB543;
+  background: #00A5E0;
   display: flex;
   justify-content: space-between;
 `;
@@ -44,7 +44,7 @@ const Flashbar = () => {
   return (
     <FlashbarWrapper>
       <StyledFlashbarText>
-        <p style={{fontWeight: 600}}>Your supercharged notes are ready!</p>
+        <p style={{fontWeight: 600}}>Your super charged research paper is ready!</p>
       </StyledFlashbarText>
       <StyledButton onClick={goHome}>
         Upload another document

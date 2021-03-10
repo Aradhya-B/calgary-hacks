@@ -210,6 +210,7 @@ def delete_tmp_files():
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    print('hit')
     file = request.files['file']
     if request.method == 'POST' and file:
         filename = secure_filename(file.filename)

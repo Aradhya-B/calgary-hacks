@@ -1,4 +1,4 @@
-import background from './book_proper_size.jpg'
+import background from './library.jpg'
 
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -94,7 +94,9 @@ class Upload extends Component {
 
       // Request made to the backend api
       // Send formData object
-      const res = await axios.post("https://neural-notes.herokuapp.com/upload", formData);
+      // // TODO: Change to deployed <10-03-21, Aradhya Bansal> //
+      // const res = await axios.post("https://neural-notes.herokuapp.com/upload", formData);
+      const res = await axios.post("http://localhost:5000/upload", formData);
       const keywords = [...new Set(res.data.reduce((accum, arr) => accum.concat(arr.keywords), []))];
       const summary = res.data.reduce((accum, arr) => {accum.push(arr.summary); return accum;}, []).join('\n');
       const originalText = res.data.reduce((accum, arr) => {accum.push(arr.text); return accum;}, []).join('\n');
@@ -130,12 +132,12 @@ class Upload extends Component {
     render() {
       return (
         <div style={ divStyle }>
-          <div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "100%"}}>
-          <Title>
-              NeuralNotes 🧠
+          <div style={{display: "flex", flexDirection: "column", alignItems: 'center', justifyContent: "center", height: "100%"}}>
+            <Title style={{backgroundColor: '#00A5E0', borderWidth: '3px', borderRadius: '10px', borderColor: 'blue', borderStyle: 'dashed solid'}}>
+              papercharger.ai
             </Title>
-            <Title2>
-              supercharge your notes ⚡
+            <Title2 style={{backgroundColor: '#00A5E0', borderWidth: '3px', borderRadius: '10px', borderColor: 'blue', borderStyle: 'dashed solid'}}>
+              <em>charge</em> your papers 📄 and become a <em>faster</em> ⏱  reviewer
             </Title2>
             {
               this.state.loading ?
